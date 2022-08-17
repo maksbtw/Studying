@@ -8,21 +8,21 @@
     src: url(fonts/Poppins-SemiBold.otf);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     outline: none;
     list-style: none;
 }
 
-body{
+body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 2fr;
     height: 100vh;
 }
 
-#history{
+#history {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,7 +33,7 @@ body{
     padding: 10px;
 }
 
-#history span{
+#history span {
     display: flex;
     justify-content: center;
     font-size: 20px;
@@ -41,50 +41,68 @@ body{
     margin-top: 10px;
 }
 
-#field{
+#field {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-row-gap: 10px;
+    background: lightgray;
+    padding: 10px;
+    font-family: Medium;
+}
+
+#input {
+    background-color: #efeeee;
+    border-radius: 25px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
+
+#result {
+    background-color: #efeeee;
+    border-radius: 25px;
+    padding: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 30px;
+}
+
+#buttons {
     background: lightgray;
     padding: 10px;
 }
 
-#buttons{
-    background: lightgray;
-    padding: 10px;
-}
-
-#buttons button{
+#buttons button {
     background-color: #efeeee;
     font-family: Medium;
     width: 70px;
     height: 70px;
     border-radius: 25px;
     border: 3px solid #9594a7;
+    font-size: 20px;
+    transition: .1s;
 }
 
-#history .wrapper{
+#buttons button:hover {
+    background: #e5e5e5;
+}
+
+#buttons button:active {
+    background: #cacaca;
+    border: 3px solid #aeadc1;
+}
+
+#history .wrapper {
     background-color: #efeeee;
     width: 100%;
     height: 90vh;
     border-radius: 25px;
 }
 
-#input-field{
-    background-color: #efeeee;
-    width: 100%;
-    height: 20vh;
-    border-radius: 25px;
-}
-
-#result{
-    background-color: #efeeee;
-    width: 100%;
-    height: 10vh;
-    border-radius: 25px;
-}
-
-#buttons .wrapper{
+#buttons .wrapper {
     background-color: #efeeee;
     border-radius: 25px;
     width: 100%;
@@ -96,11 +114,10 @@ body{
     justify-items: center;
 }
 
-#equal{
+#equal {
     height: 90% !important;
     grid-column-start: 6;
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 5;
 }
-
