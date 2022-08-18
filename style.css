@@ -56,6 +56,7 @@ body {
     border-radius: 25px;
     padding: 25px;
     display: flex;
+    justify-content: right;
     align-items: center;
     font-size: 40px;
 }
@@ -120,4 +121,8 @@ body {
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 5;
+}
+
+#some {
+    color: transparent;
 }
