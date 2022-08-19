@@ -30,6 +30,14 @@ buttons.forEach(item => {
       break
       case 'AC': print('AC')
       break
+      case '+': print('+')
+      break
+      case '-': print('-')
+      break
+      case '/': print('/')
+      break
+      case 'X': print('X')
+      break
     }
   })
 })
@@ -51,4 +59,22 @@ function print(value) {
     input.innerText = ''
     console.log(input.innerText)
   }
+  else if(value === '+'){
+    input.innerText = input.innerText + '+'
+    console.log(input.innerText)
+  }
+  else if(value === '-'){
+    input.innerText = input.innerText + '-'
+    console.log(input.innerText)
+  }
+  else if(value === '/'){
+    input.innerText = input.innerText + '/'
+    console.log(input.innerText)
+  }
+  else if(value === 'X'){
+    input.innerText = input.innerText + '*'
+    console.log(input.innerText)
+  }
+
+  
 }
