@@ -54,7 +54,7 @@ body {
 #input {
     background-color: #efeeee;
     border-radius: 25px;
-    padding: 25px;
+    padding: 0 25px;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -64,7 +64,7 @@ body {
 #result {
     background-color: #efeeee;
     border-radius: 25px;
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -125,4 +125,10 @@ body {
 
 #some {
     color: transparent;
+}
+
+#zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 170px !important;
 }

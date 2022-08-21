@@ -1,80 +1,109 @@
-const buttons = document.querySelectorAll('#buttons .wrapper button')
-const input = document.querySelector('#input')
+const buttons = document.querySelectorAll('#buttons .wrapper button') // усі кнопки
+const input = document.querySelector('#input') // поле виводу тексту
+const output = document.querySelector('#result') // поле результату
 
-buttons.forEach(item => {
-  item.addEventListener('click', (e) => {
-    switch(item.innerText) {
-      case '1': print(1)
-      break
-      case '2': print(2)
-      break
-      case '3': print(3)
-      break
-      case '4': print(4)
-      break
-      case '5': print(5)
-      break
-      case '6': print(6)
-      break
-      case '7': print(7)
-      break
-      case '8': print(8)
-      break
-      case '9': print(9)
-      break
-      case '0': print(0)
-      break
-      case '`': print('backspace')
-      break
-      case ',': print(',')
-      break
-      case 'AC': print('AC')
-      break
-      case '+': print('+')
-      break
-      case '-': print('-')
-      break
-      case '/': print('/')
-      break
-      case 'X': print('X')
-      break
+const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+const signs = ['+', '-', 'X', '/']
+
+let a = '' // перше число
+let b = '' // друге число
+let sign = ''
+let isB = false // якщо false то наповнюється перше число
+let isComma = false // якщо true то кома вже є
+
+buttons.forEach(elem => {
+  elem.onclick = e => {
+    if (numbers.includes(elem.textContent.toString())) {
+      // число
+      if (!isB) {
+        a += elem.textContent.toString()
+        input.innerText = a
+      }
+      else {
+        b += elem.textContent.toString()
+        input.innerText = b
+      }
     }
-  })
+    else if (signs.includes(elem.textContent.toString())) {
+      // знак
+      sign = elem.textContent.toString()
+      isB = true
+      input.innerText = sign
+    }
+    else if (elem.textContent.toString() === 'AC') {
+      reset()
+      input.textContent = ''
+      output.textContent = ''
+    }
+    else if (elem.textContent.toString() === '=') {
+      output.innerText = equal()
+      input.innerText = ''
+      reset()
+    }
+    else if (elem.textContent.toString() === '.') {
+      if (!isComma) {
+        isComma = true
+        if (!isB) {
+          a === '' ? a = '0.' : a += '.'
+          input.innerText = a
+        }
+        else {
+          b === '' ? b = '0.' : b += '.'
+          input.innerText = b
+        }
+      }
+      else {
+
+      }
+    }
+    else if (elem.textContent.toString() === '%') {
+      if (!isB) {
+        a /= 100
+        input.innerText = a
+      }
+      else {
+        b /= 100
+        input.innerText = b
+      }
+    }
+    else if (elem.textContent.toString() === '+/-') {
+      if (!isB) {
+        a = -a
+        input.innerText = a
+      }
+      else {
+        b = -b
+        input.innerText = b
+      }
+    }
+
+    console.log(a || null, b || null, sign || null)
+  }
 })
 
-function print(value) {
-  if(/\d/g.test(value) === true){
-    input.innerText = input.innerText + value.toString()
-    console.log(input.innerText)
+function equal() {
+  if (a && b) {
+    return a || b || '0'
   }
-  else if(value === 'backspace') {
-    input.innerText = input.innerText.slice(0,-1)
-    console.log(input.innerText)
+  else {
+    if (sign === '+') {
+      return +a + +b
+    }
+    else if (sign === '-') {
+      return a - b
+    }
+    else if (sign === '/') {
+      return a / b
+    }
+    else if (sign === 'X') {
+      return a * b
+    }
   }
-  else if(value === ',') {
-    input.innerText = input.innerText + value.toString()
-    console.log(input.innerText)
-  }
-  else if(value === 'AC'){
-    input.innerText = ''
-    console.log(input.innerText)
-  }
-  else if(value === '+'){
-    input.innerText = input.innerText + '+'
-    console.log(input.innerText)
-  }
-  else if(value === '-'){
-    input.innerText = input.innerText + '-'
-    console.log(input.innerText)
-  }
-  else if(value === '/'){
-    input.innerText = input.innerText + '/'
-    console.log(input.innerText)
-  }
-  else if(value === 'X'){
-    input.innerText = input.innerText + '*'
-    console.log(input.innerText)
-  }
+}
 
-  
+function reset() {
+  a = ''
+  b = ''
+  sign = ''
+  isB = false
 }
