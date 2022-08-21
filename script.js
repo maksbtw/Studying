@@ -83,9 +83,6 @@ buttons.forEach(elem => {
 
 function equal() {
   if (a && b) {
-    return a || b || '0'
-  }
-  else {
     if (sign === '+') {
       return +a + +b
     }
@@ -98,6 +95,9 @@ function equal() {
     else if (sign === 'X') {
       return a * b
     }
+  }
+  else {
+    return a || b || '0'
   }
 }
 
